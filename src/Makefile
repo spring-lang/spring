@@ -1,11 +1,15 @@
 CFLAGS=-Wall -g
 CC=gcc
 
-SRCS:=$(wildcard ./src/*.c)
+OBJS=token.o parser.o 
+
+spring: $(OBJS)
+	CC -o spring $(OBJS)
 
 test:
 	echo "test"
 
 clean:
+	- rm spring $(OBJS)
 	- rm -rf *.dSYM
 	find . -executable -type f|xargs rm -rf
